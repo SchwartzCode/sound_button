@@ -1,5 +1,6 @@
 # import RPi.GPIO as GPIO
 import time
+import atexit
 
 class SoundPlayer(object):
 
@@ -10,8 +11,6 @@ class SoundPlayer(object):
     def playSound(self):
         print("should be playing a sound")
 
-# board pinout:
-# https://iot4beginners.com/difference-between-bcm-and-board-pin-numbering-in-raspberry-pi/
 GPIO.setmode(GPIO.BOARD)
 
 button_pin = 3
@@ -36,3 +35,5 @@ while True:
 #     input = GPIO.input(button_pin)
 #     print(input)
 #     time.sleep(1)
+
+atexit.register(GPIO.cleanup())
