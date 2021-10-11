@@ -3,6 +3,7 @@ import time
 import atexit
 import subprocess
 import os
+import random
 
 class SoundPlayer(object):
 
@@ -12,13 +13,20 @@ class SoundPlayer(object):
 
     def loadSounds(self):
         self.sounds = []
-        for file in os.listdir("./"):
+        self.sound_dex = 0
+
+        for file in os.listdir("./audio/"):
             if file.endswith(".mp3"):
                 self.sounds.append(file)
+        random.shuffle(self.sounds)
 
     def playSound(self):
-        print("should be playing a sound")
-        subprocess.call(["omxplayer", "-o", "alsa", "test_sound.mp3"])
+        sound = self.sounds[self.sound_dex]
+        subprocess.call(["omxplayer", "-o", "alsa", "audio/" + sound])
+        self.sound_dex += 1
+        if self.sound_dex == len(self.sounds):
+            self.sound_dex = 0
+            random.shuffle(self.sounds)
 
 GPIO.setmode(GPIO.BOARD)
 
