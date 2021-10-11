@@ -1,24 +1,31 @@
 import RPi.GPIO as GPIO
 import time
 import atexit
+import subprocess
+import os
 
 class SoundPlayer(object):
 
-    def __init__(self, sounds):
+    def __init__(self):
         print("init")
-        self.sounds = sounds
+        self.loadSounds()
+
+    def loadSounds(self):
+        self.sounds = []
+        for file in os.listdir("./"):
+            if file.endswith(".mp3"):
+                self.sounds.append(file)
 
     def playSound(self):
         print("should be playing a sound")
+        subprocess.call(["omxplayer", "-o", "alsa", "test_sound.mp3"])
 
 GPIO.setmode(GPIO.BOARD)
 
 button_pin = 3
 GPIO.setup(button_pin, GPIO.IN)
 
-sounds = []
-
-noisey_guy = SoundPlayer(sounds)
+noisey_guy = SoundPlayer()
 
 
 while True:
