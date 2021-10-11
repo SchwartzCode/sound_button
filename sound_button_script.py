@@ -46,9 +46,4 @@ while True:
     time.sleep(0.1)
 
 
-# while True:
-#     input = GPIO.input(button_pin)
-#     print(input)
-#     time.sleep(1)
-
 atexit.register(GPIO.cleanup())
