@@ -10,6 +10,7 @@ class SoundPlayer(object):
     def __init__(self):
         print("init")
         self.loadSounds()
+        self.audio = None
 
     def loadSounds(self):
         self.sounds = []
@@ -21,34 +22,33 @@ class SoundPlayer(object):
         random.shuffle(self.sounds)
 
     def playSound(self):
-        sound = self.sounds[self.sound_dex]
-        subprocess.call(["omxplayer", "-o", "alsa", "audio/" + sound])
+        if self.audio is not None:
+            self.audio.terminate()
+
+        self.audio = self.sounds[self.sound_dex]
+           
+        self.audio = subprocess.Popen(["omxplayer", "-o", "alsa", "audio/" + self.sounds[self.sound_dex]])
         self.sound_dex += 1
         if self.sound_dex == len(self.sounds):
             self.sound_dex = 0
             random.shuffle(self.sounds)
 
-GPIO.setmode(GPIO.BOARD)
 
-button_pin = 3
-GPIO.setup(button_pin, GPIO.IN)
+if __name__ == "__main__":
+    GPIO.setmode(GPIO.BOARD)
 
-noisey_guy = SoundPlayer()
+    button_pin = 3
+    GPIO.setup(button_pin, GPIO.IN)
 
+    noisey_guy = SoundPlayer()
 
-while True:
-    input = GPIO.wait_for_edge(button_pin, GPIO.RISING)
+    while True:
+        input = GPIO.wait_for_edge(button_pin, GPIO.RISING)
 
-    if input:
-        print("pressed!")
-        noisey_guy.playSound()
+        if input:
+            print("pressed!")
+            noisey_guy.playSound()
 
-    time.sleep(0.1)
+        time.sleep(0.1)
 
-
-# while True:
-#     input = GPIO.input(button_pin)
-#     print(input)
-#     time.sleep(1)
-
-atexit.register(GPIO.cleanup())
+    atexit.register(GPIO.cleanup())
