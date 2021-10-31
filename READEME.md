@@ -12,9 +12,9 @@
     - Note: if you want to adjust the volume of audio output, use the command `alsamixer` to view a dashboard that allows you to edit output volume
 6. Connect your pi to the internet (TODO: add reference for this)
 7. Clone this repository (TODO: add link)
-8. Add a folder called "sounds" inside the sound-button folder you downloaded in step 7 that is filled with the audio clips you want to play
+8. Add a folder called "sounds" inside the sound_button folder you downloaded in step 7 that is filled with the audio clips you want to play
 9. Connect a button to the GPIO pins (TODO: more info here)
 10. Run the script to verify everything works
 11. If you want the script to play automatically, add these two lines to the bottom of the .bashrc file in your raspberry pi's home directory (type `cd ~` to get to home directory)
-    - `cd ~/sound-button` TODO: replace - with underscore
-    - `python sound-button-script.py`
+    - `cd ~/sound_button` TODO: replace - with underscore
+    - `python sound_button_script.py`
