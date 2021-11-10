@@ -4,6 +4,7 @@ import atexit
 import subprocess
 import os
 import random
+import signal
 
 class SoundPlayer(object):
 
@@ -23,16 +24,16 @@ class SoundPlayer(object):
 
     def playSound(self):
         if self.audio is not None:
-            self.audio.terminate()
-
-        self.audio = self.sounds[self.sound_dex]
+            os.killpg(os.getpgid(self.audio.pid), signal.SIGTERM)
+            self.audio = None
+            print("killing...")
            
-        self.audio = subprocess.Popen(["omxplayer", "-o", "alsa", "audio/" + self.sounds[self.sound_dex]])
+        self.audio = subprocess.Popen(["omxplayer", "-o", "alsa", "audio/" + self.sounds[self.sound_dex]], preexec_fn=os.setsid)
         self.sound_dex += 1
+    
         if self.sound_dex == len(self.sounds):
             self.sound_dex = 0
             random.shuffle(self.sounds)
-
 
 if __name__ == "__main__":
     GPIO.setmode(GPIO.BOARD)
@@ -52,3 +53,6 @@ if __name__ == "__main__":
         time.sleep(0.1)
 
     atexit.register(GPIO.cleanup())
+    atexit.register(os.killpg(os.getgpid(noisey_guy.audio.pid), signal.SIGTERM))
+
+    
