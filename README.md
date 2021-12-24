@@ -14,9 +14,8 @@
     - Note: if you want to adjust the volume of audio output, use the command `alsamixer` to view a dashboard that allows you to edit output volume
 7. Install Git by running the command: `sudo apt-get install git`
 8. Run this command to download the code: `git clone https://github.com/SchwartzCode/sound_button.git`
-
-NOTE: if you are running the debian bullseye OS, you will need to do a few things:
-        - check out the bullseye branch of this repo: `git checkout -b bullseye origin/bullseye`
+    - This branch works for debian buster. If you are running the debian bullseye OS, you will need to:
+        - checkout the bullseye branch of this repo: `git checkout -b bullseye origin/bullseye`
         - install vlc: `sudo apt install vlc`
         
 9. Add a folder called "sounds" inside the sound\_button folder you downloaded in step 7 that is filled with the audio clips you want to play
