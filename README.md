@@ -31,6 +31,7 @@
 - If you get a weird Input/Output error when trying to play sounds, you may need to turn the volume down on your audio player (can adjust this with by running `alsamixer` command)
 - If you are having trouble installing things, try running the command: `sudo apt-get update` and then: `sudo apt-get upgrade`
 - If you aren't sure if you are connected to the internet, run the command: `ping google.com` to verify your connection
+- If your keyboard is not typing the proper characters sometimes (happens for me with @, ", ~ and some other symbols), you can either try to switch your keyboard type in the raspi-config (run command `sudo raspi-config` to edit) or you can just find where characters are mapping to. For me, I have found that @ and " switch places, and ~ can be typed by hitting the | key 
 
 ## Useful Resources
 
