@@ -20,8 +20,9 @@
         
 9. Add a folder called "sounds" inside the sound\_button folder you downloaded in step 7 that is filled with the audio clips you want to play
 10. Connect a button to the GPIO pins (TODO: more info here)
-11. Run the script to verify everything works
-12. If you want the script to play automatically, add these two lines to the bottom of the .bashrc file in your raspberry pi's home directory (type `cd ~` to get to home directory)
+11. Move the desired sound files (mp3s and wavs) into the audio/ folder (they CANNOT be in a folder inside the audio/ folder)
+12. Run the script to verify everything works
+13. If you want the script to play automatically, add these two lines to the bottom of the .bashrc file in your raspberry pi's home directory (type `cd ~` to get to home directory)
     - `cd ~/sound_button`
     - `python sound_button_script.py`
     - You will also need to set up auto-login on the pi ([instructions here](https://raspberrypi.stackexchange.com/questions/40415/how-to-enable-auto-login))
