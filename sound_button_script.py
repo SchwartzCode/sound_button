@@ -20,6 +20,7 @@ class SoundPlayer(object):
         self.sound_dex = 0
 
         for file in os.listdir("./audio"):
+            print(file)
             if file.endswith(".mp3") or file.endswith(".wav"):
                 self.sounds.append(file)
         random.shuffle(self.sounds)
@@ -49,13 +50,9 @@ if __name__ == "__main__":
         input = GPIO.wait_for_edge(button_pin, GPIO.RISING)
 
         if input:
-            print("pressed!")
             noisey_guy.playSound()
 
-        time.sleep(0.1)
+        time.sleep(0.1) # debouncing for button
 
     atexit.register(GPIO.cleanup())
     atexit.register(os.killpg(os.getgpid(noisey_guy.audio.pid), signal.SIGTERM))
-
-
-atexit.register(GPIO.cleanup())
