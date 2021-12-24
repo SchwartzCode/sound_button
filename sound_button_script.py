@@ -13,7 +13,7 @@ class SoundPlayer(object):
         self.loadSounds()
         self.audio = None
 
-        self.audio = subprocess.Popen(["omxplayer", "-o", "alsa", "audio/buzzer.mp3"], preexec_fn=os.setsid)
+        self.audio = subprocess.Popen(["vlc", "audio/buzzer.mp3"], preexec_fn=os.setsid)
 
     def loadSounds(self):
         self.sounds = []
@@ -30,7 +30,7 @@ class SoundPlayer(object):
             self.audio = None
             print("killing...")
 
-        self.audio = subprocess.Popen(["omxplayer", "-o", "alsa", "audio/" + self.sounds[self.sound_dex]], preexec_fn=os.setsid)
+        self.audio = subprocess.Popen(["vlc", "audio/" + self.sounds[self.sound_dex]], preexec_fn=os.setsid)
         self.sound_dex += 1
 
         if self.sound_dex == len(self.sounds):
