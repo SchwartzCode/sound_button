@@ -12,7 +12,7 @@
     - Note: if you want to adjust the volume of audio output, use the command `alsamixer` to view a dashboard that allows you to edit output volume
 6. [Connect your pi to the internet](https://raspberrypihq.com/how-to-connect-your-raspberry-pi-to-wifi/)
 7. Install Git by running the command: `sudo apt-get install git`
-8. Run this command to download the code: `git clone git@github.com:SchwartzCode/sound_button.git`
+8. Run this command to download the code: `git clone https://github.com/SchwartzCode/sound_button.git`
 9. Add a folder called "sounds" inside the sound\_button folder you downloaded in step 7 that is filled with the audio clips you want to play
 10. Connect a button to the GPIO pins (TODO: more info here)
 11. Run the script to verify everything works
