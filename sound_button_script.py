@@ -13,6 +13,8 @@ class SoundPlayer(object):
         self.loadSounds()
         self.audio = None
 
+        self.audio = subprocess.Popen(["omxplayer", "-o", "alsa", "audio/buzzer.mp3"], preexec_fn=os.setsid)
+
     def loadSounds(self):
         self.sounds = []
         self.sound_dex = 0
