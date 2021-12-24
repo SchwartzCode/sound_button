@@ -27,6 +27,9 @@ NOTE: if you are running the debian bullseye OS, you will need to do a few thing
     - `python sound_button_script.py`
     - You will also need to set up auto-login on the pi ([instructions here](https://raspberrypi.stackexchange.com/questions/40415/how-to-enable-auto-login))
 
+## Debugging issues
+- If you get a weird Input/Output error when trying to play sounds, you may need to turn the volume down on your audio player (can adjust this with by running `alsamixer` command)
+- If you are having trouble installing things, try running the command: `sudo apt-get update` and then: `sudo apt-get upgrade`
 
 ## Useful Resources
 
