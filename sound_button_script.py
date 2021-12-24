@@ -20,7 +20,6 @@ class SoundPlayer(object):
         self.sound_dex = 0
 
         for file in os.listdir("./audio"):
-            print(file)
             if file.endswith(".mp3") or file.endswith(".wav"):
                 self.sounds.append(file)
         random.shuffle(self.sounds)
