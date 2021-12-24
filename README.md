@@ -1,7 +1,8 @@
 # Press a button to play a sound
 
 ## Setup Instructions
-1. Flash SD card with a raspberry-pi compatible OS (raspbian-lite is what I used)
+1. Flash SD card with a raspberry-pi compatible OS (main branch works for debian buster, bullseye branch works for debian bullseye)
+    - Newest OS's supported by raspberry pi [are available here](https://www.raspberrypi.com/software/operating-systems/)
 2. Connect speaker and ensure it is connected with the command `aplay -l`
     - Note: you can also see all connected sound cards with the command `cat /proc/asound/cards`
 3. Verify the speaker works with the command: `speaker-test -c2 -D plughw:n,0` where n is the sound card number
