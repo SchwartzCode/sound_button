@@ -1,4 +1,4 @@
-# Press a button to play a sound
+# Sound Button
 
 ## Setup Instructions
 1. Flash SD card with a raspberry-pi compatible OS (raspbian-lite is what I used)
@@ -10,20 +10,11 @@
     - defaults.ctl.card n
 5. Verify your default audio output is now your speaker by running `speaker-test c2`
     - Note: if you want to adjust the volume of audio output, use the command `alsamixer` to view a dashboard that allows you to edit output volume
-6. [Connect your pi to the internet](https://raspberrypihq.com/how-to-connect-your-raspberry-pi-to-wifi/)
-7. Run this command to download the code: `git clone git@github.com:SchwartzCode/sound_button.git`
-8. Add a folder called "sounds" inside the sound\_button folder you downloaded in step 7 that is filled with the audio clips you want to play
+6. Connect your pi to the internet (TODO: add reference for this)
+7. Clone this repository (TODO: add link)
+8. Add a folder called "sounds" inside the sound_button folder you downloaded in step 7 that is filled with the audio clips you want to play
 9. Connect a button to the GPIO pins (TODO: more info here)
 10. Run the script to verify everything works
 11. If you want the script to play automatically, add these two lines to the bottom of the .bashrc file in your raspberry pi's home directory (type `cd ~` to get to home directory)
-    - `cd ~/sound_button`
+    - `cd ~/sound_button` TODO: replace - with underscore
     - `python sound_button_script.py`
-
-
-## Useful Resources
-
-- [Python GPIO Library for Raspberry Pi](https://sourceforge.net/p/raspberry-gpio-python/wiki/BasicUsage/)
-
-- [Raspberry Pi GPIO Pinout](https://iot4beginners.com/difference-between-bcm-and-board-pin-numbering-in-raspberry-pi/)
-
-- [Changing default output on Rasepberry Pi](https://learn.adafruit.com/usb-audio-cards-with-a-raspberry-pi/updating-alsa-config)
