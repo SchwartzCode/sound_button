@@ -19,7 +19,9 @@
         - checkout the bullseye branch of this repo: `git checkout -b bullseye origin/bullseye`
         - install vlc: `sudo apt install vlc`
 10. Add a folder called "sounds" inside the sound\_button folder you downloaded in step 7 that is filled with the audio clips you want to play
-11. Connect a button to the GPIO pins (TODO: more info here)
+11. Connect a button to the GPIO pins by soldering it to the proper pins:
+    ![rpi_gpio_edited](https://user-images.githubusercontent.com/496532/147787177-8962b0be-fc85-4006-85a0-61c972daafd0.png)
+
 12. Move the desired sound files (mp3s and wavs) into the audio/ folder (they CANNOT be in a folder inside the audio/ folder)
 13. Run the script to verify everything works
 14. If you want the script to play automatically, add these two lines to the bottom of the .bashrc file in your raspberry pi's home directory (type `cd ~` to get to home directory)
